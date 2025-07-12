@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Luisa Chierentin - Nail Design Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fff9fb;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+            color: #d14d7a;
+        }
+        
+        .hero-pattern {
+            background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(209, 77, 122, 0.8);
+        }
+        
+        .nail-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .calendar-day:hover:not(.disabled) {
+            background-color: #f8e0e8;
+            cursor: pointer;
+        }
+        
+        .selected {
+            background-color: #d14d7a;
+            color: white;
+        }
+        
+        .disabled {
+            color: #d1d5db;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="bg-purple-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-rose-500 text-2xl mr-2"></i>
+                <h1 class="title-font text-2xl font-bold text-rose-700">Studio Luisa Chierentin</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-rose-700 hover:text-rose-500 font-medium">Início</a>
+                <a href="#services" class="text-rose-700 hover:text-rose-500 font-medium">Serviços</a>
+                <a href="#booking" class="text-rose-700 hover:text-rose-500 font-medium">Agendamento</a>
+                <button id="login-button" class="ml-4 bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-4 rounded-full transition duration-300">
+                    <i class="fas fa-lock mr-2"></i>Área Admin
+                </button>
+            </nav>
+            <button class="md:hidden text-purple-800" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-purple-800 hover:text-purple-600 font-medium">Início</a>
+                <a href="#services" class="text-purple-800 hover:text-purple-600 font-medium">Serviços</a>
+                <a href="#booking" class="text-purple-800 hover:text-purple-600 font-medium">Agendamento</a>
+                <button id="mobile-login-button" class="text-purple-800 hover:text-purple-600 font-medium text-left">
+                    <i class="fas fa-lock mr-2"></i>Área Admin
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern bg-purple-900 bg-opacity-70 text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6">Beleza e Elegância em Cada Detalhe</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Transformamos suas unhas em verdadeiras obras de arte com técnicas exclusivas e produtos de alta qualidade.</p>
+            <a href="#booking" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Agendar Horário</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-rose-700 mb-4">Nossos Serviços</h2>
+                <div class="w-20 h-1 bg-rose-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="nail-service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-hand-sparkles text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-purple-900 mb-3">Molde F1</h3>
+                        <p class="text-gray-600 mb-4">Técnica de alongamento que proporciona unhas mais longas e resistentes com acabamento natural.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 100,00</span>
+                            <span class="text-sm text-gray-500">90 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="nail-service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-purple-900 mb-3">Blindagem</h3>
+                        <p class="text-gray-600 mb-4">Técnica que fortalece as unhas naturais com camadas de gel para maior resistência.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 60,00</span>
+                            <span class="text-sm text-gray-500">60 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="nail-service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-bath text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-purple-900 mb-3">Banho de Gel</h3>
+                        <p class="text-gray-600 mb-4">Técnica que proporciona unhas perfeitas com acabamento brilhante e duradouro.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 80,00</span>
+                            <span class="text-sm text-gray-500">60 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-16 bg-purple-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">Agende Seu Horário</h2>
+                <div class="w-20 h-1 bg-purple-300 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-purple-800 p-8">
+                        <h3 class="title-font text-2xl font-bold mb-6">Informações para Agendamento</h3>
+                        
+                        <div class="mb-6">
+                            <label class="block text-purple-200 font-medium mb-2">Selecione o Serviço</label>
+                            <select class="w-full px-4 py-2 rounded bg-purple-700 border border-purple-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                <option>Molde F1 - R$100,00</option>
+                                <option>Blindagem - R$60,00</option>
+                                <option>Banho de Gel - R$80,00</option>
+                                <option>Esmaltação em Gel - R$45,00</option>
+                                <option>Manutenção Molde F1 - R$80,00</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-purple-200 font-medium mb-2">Selecione a Data</label>
+                            <div class="bg-purple-700 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <button id="prev-month" class="text-purple-300 hover:text-white"><i class="fas fa-chevron-left"></i></button>
+                                    <h4 id="current-month" class="font-bold">Julho 2023</h4>
+                                    <button id="next-month" class="text-purple-300 hover:text-white"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="grid grid-cols-7 gap-1 text-center">
+                                    <div class="text-purple-400 font-medium text-sm">Dom</div>
+                                    <div class="text-purple-400 font-medium text-sm">Seg</div>
+                                    <div class="text-purple-400 font-medium text-sm">Ter</div>
+                                    <div class="text-purple-400 font-medium text-sm">Qua</div>
+                                    <div class="text-purple-400 font-medium text-sm">Qui</div>
+                                    <div class="text-purple-400 font-medium text-sm">Sex</div>
+                                    <div class="text-purple-400 font-medium text-sm">Sáb</div>
+                                    
+                                    <!-- Calendar days will be inserted here by JavaScript -->
+                                    <div id="calendar-days" class="col-span-7 grid grid-cols-7 gap-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-purple-200 font-medium mb-2">Selecione o Horário</label>
+                            <div class="grid grid-cols-3 gap-2" id="time-slots">
+                                <!-- Time slots will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8 text-gray-800">
+                        <h3 class="title-font text-2xl font-bold mb-6 text-purple-900">Seus Dados</h3>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Nome Completo</label>
+                            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Telefone</label>
+                            <input type="tel" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">E-mail</label>
+                            <input type="email" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Observações</label>
+                            <textarea class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="3"></textarea>
+                        </div>
+                        
+                        <button id="confirm-booking" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded transition duration-300">Confirmar Agendamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-purple-900 mb-4">O Que Nossas Clientes Dizem</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Luisa é incrível! Minhas unhas ficaram perfeitas e duraram mais de 3 semanas sem nenhum problema. Ambiente super aconchegante e profissional."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold text-purple-900">Ana Carolina</h4>
+                            <p class="text-sm text-gray-500">Cliente há 2 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Nunca encontrei alguém tão detalhista e perfeccionista como a Luisa. Cada visita ao studio é uma experiência única. Recomendo muito!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 2" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold text-purple-900">Juliana Mendes</h4>
+                            <p class="text-sm text-gray-500">Cliente há 1 ano</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Adoro os designs criativos que a Luisa faz. Ela sempre sugere novidades e combinações que nunca imaginei. Minhas unhas são sempre elogiadas!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente 3" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold text-purple-900">Fernanda Oliveira</h4>
+                            <p class="text-sm text-gray-500">Cliente há 6 meses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="title-font text-3xl md:text-4xl font-bold text-purple-900 mb-6">Entre em Contato</h2>
+                    <p class="text-gray-600 mb-6">Tem dúvidas ou quer saber mais sobre nossos serviços? Entre em contato conosco através dos canais abaixo ou preencha o formulário.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-purple-600 mr-3 text-xl"></i>
+                            <span class="text-gray-700">R. 16, Bairro Ibirapuera, nº 3735 - Barretos/SP - 14784-162</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-purple-600 mr-3 text-xl"></i>
+                            <span class="text-gray-700">(17) 98157-0946</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-purple-600 mr-3 text-xl"></i>
+                            <span class="text-gray-700">Seg-Sex: 9h às 19h | Sáb: 9h às 14h</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-purple-900 mb-4">Siga-nos nas Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-purple-100 text-purple-600 hover:bg-purple-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-purple-100 text-purple-600 hover:bg-purple-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-purple-100 text-purple-600 hover:bg-purple-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-purple-50 p-6 rounded-lg">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Nome</label>
+                            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">E-mail</label>
+                            <input type="email" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <input type="text" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                            <textarea class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded transition duration-300">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rose-700 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-spa text-rose-200 text-2xl mr-2"></i>
+                        <h3 class="title-font text-xl font-bold">Studio Luisa Chierentin</h3>
+                    </div>
+                    <p class="text-rose-200 mt-2">R. 16, Bairro Ibirapuera, nº 3735 - Barretos/SP</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-rose-200">&copy; 2023 Studio Luisa Chierentin. Todos os direitos reservados.</p>
+                    <p class="text-rose-200 text-sm mt-1">Desenvolvido com <i class="fas fa-heart text-rose-300"></i> para sua beleza</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="title-font text-2xl font-bold text-purple-900">Área Administrativa</h3>
+                    <button id="close-login-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <form id="admin-login-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Usuário</label>
+                        <input type="text" name="username" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Senha</label>
+                        <input type="password" name="password" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    </div>
+                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded transition duration-300">
+                        Entrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Booking confirmation
+        document.getElementById('confirm-booking').addEventListener('click', function() {
+            const service = document.querySelector('#booking select').value;
+            const date = selectedDate;
+            const time = document.querySelector('.time-slot.bg-purple-900')?.textContent;
+            const name = document.querySelector('#booking input[type="text"]').value;
+            const phone = document.querySelector('#booking input[type="tel"]').value;
+            const email = document.querySelector('#booking input[type="email"]').value;
+            const notes = document.querySelector('#booking textarea').value;
+
+            if (!service || !date || !time || !name || !phone || !email) {
+                alert('Por favor, preencha todos os campos obrigatórios e selecione data/horário.');
+                return;
+            }
+
+            // Format date to dd/mm/yyyy
+            const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth()+1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+
+            // Create booking confirmation message
+            const confirmationMessage = `
+                Agendamento Confirmado!
+                -----------------------
+                Serviço: ${service}
+                Data: ${formattedDate}
+                Horário: ${time}
+                Cliente: ${name}
+                Telefone: ${phone}
+                E-mail: ${email}
+                Observações: ${notes || 'Nenhuma'}
+                
+                Obrigado por agendar conosco!
+            `;
+
+            alert(confirmationMessage);
+            
+            // Add to admin panel bookings
+            const bookingsTable = document.querySelector('#admin-panel table tbody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'border-b hover:bg-purple-50';
+            newRow.innerHTML = `
+                <td class="py-2 px-4">${name}</td>
+                <td class="py-2 px-4">${service.split(' - ')[0]}</td>
+                <td class="py-2 px-4">${formattedDate}</td>
+                <td class="py-2 px-4">${time}</td>
+                <td class="py-2 px-4">${service.split(' - ')[1] || 'R$ 0,00'}</td>
+                <td class="py-2 px-4"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pendente</span></td>
+            `;
+            bookingsTable.insertBefore(newRow, bookingsTable.firstChild);
+            
+            // Reset form
+            document.querySelector('#booking form').reset();
+            selectedDate = null;
+            document.querySelectorAll('.calendar-day').forEach(day => {
+                day.classList.remove('selected', 'bg-purple-700', 'text-white');
+            });
+            document.getElementById('time-slots').innerHTML = '';
+        });
+
+        // Login Modal Toggle
+        const loginButton = document.getElementById('login-button');
+        const loginModal = document.getElementById('login-modal');
+        const closeLoginModal = document.getElementById('close-login-modal');
+        const adminLoginForm = document.getElementById('admin-login-form');
+
+        loginButton.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+        });
+
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = e.target.username.value;
+            const password = e.target.password.value;
+            
+            // Validate admin credentials
+            if (username === '17981570946' && password === 'Ld22021719.pv') {
+                loginModal.classList.add('hidden');
+                showAdminPanel();
+            } else {
+                alert('Credenciais inválidas. Por favor, tente novamente.');
+            }
+        });
+
+        // Mobile login button
+        document.getElementById('mobile-login-button').addEventListener('click', function() {
+            loginModal.classList.remove('hidden');
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission handling
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                let isValid = true;
+                const inputs = this.querySelectorAll('input[required], textarea[required], select[required]');
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        input.classList.remove('border-red-500');
+                    }
+                });
+
+                if (isValid) {
+                    // Show success message
+                    alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+                    this.reset();
+                    
+                    // Reset calendar selection if booking form
+                    if (this.closest('#booking')) {
+                        selectedDate = null;
+                        document.querySelectorAll('.calendar-day').forEach(day => {
+                            day.classList.remove('selected', 'bg-purple-700', 'text-white');
+                        });
+                        document.getElementById('time-slots').innerHTML = '';
+                    }
+                } else {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                }
+            });
+        });
+
+        // Input validation on blur
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.required && !this.value.trim()) {
+                    this.classList.add('border-red-500');
+                } else {
+                    this.classList.remove('border-red-500');
+                }
+            });
+        });
+
+        // Calendar functionality
+        const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        
+        let currentDate = new Date();
+        let selectedDate = null;
+        
+        function renderCalendar() {
+            const calendarDays = document.getElementById('calendar-days');
+            const currentMonthYear = document.getElementById('current-month');
+            
+            // Set month and year title
+            currentMonthYear.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+            
+            // Clear previous calendar days
+            calendarDays.innerHTML = '';
+            
+            // Get first day of month and total days in month
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+            const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+            
+            // Create blank cells for days of previous month
+            for (let i = 0; i < firstDay; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'disabled py-1 text-sm';
+                calendarDays.appendChild(dayElement);
+            }
+            
+            // Add days from current month
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day py-1 text-sm rounded hover:bg-purple-600 hover:text-white';
+                dayElement.textContent = i;
+                
+                // Check if this is today
+                const today = new Date();
+                if (currentDate.getMonth() === today.getMonth() && 
+                    currentDate.getFullYear() === today.getFullYear() && 
+                    i === today.getDate()) {
+                    dayElement.classList.add('font-bold', 'bg-purple-500', 'text-white');
+                }
+                
+                // Check if this is selected date
+                if (selectedDate && 
+                    currentDate.getMonth() === selectedDate.getMonth() && 
+                    currentDate.getFullYear() === selectedDate.getFullYear() && 
+                    i === selectedDate.getDate()) {
+                    dayElement.classList.add('selected', 'bg-purple-700', 'text-white');
+                }
+                
+                dayElement.addEventListener('click', function() {
+                    // Remove selected class from all days
+                    document.querySelectorAll('.calendar-day').forEach(day => {
+                        day.classList.remove('selected', 'bg-purple-700', 'text-white');
+                    });
+                    
+                    // Add selected class to clicked day
+                    this.classList.add('selected', 'bg-purple-700', 'text-white');
+                    
+                    // Set selected date
+                    selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), parseInt(this.textContent));
+                    
+                    // Generate time slots
+                    generateTimeSlots();
+                });
+                
+                calendarDays.appendChild(dayElement);
+            }
+            
+            // Fill remaining cells to complete the grid
+            const totalCells = firstDay + daysInMonth;
+            const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+            
+            for (let i = 0; i < remainingCells; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'disabled py-1 text-sm';
+                calendarDays.appendChild(dayElement);
+            }
+        }
+        
+        function generateTimeSlots() {
+            const timeSlotsContainer = document.getElementById('time-slots');
+            timeSlotsContainer.innerHTML = '';
+            
+            if (!selectedDate) {
+                timeSlotsContainer.innerHTML = '<p class="text-purple-200 text-sm">Selecione uma data primeiro</p>';
+                return;
+            }
+            
+            // Generate time slots from 9am to 6pm
+            const startHour = 9;
+            const endHour = 18;
+            let selectedTime = null;
+            
+            for (let hour = startHour; hour < endHour; hour++) {
+                for (let minute = 0; minute < 60; minute += 30) {
+                    const timeSlot = document.createElement('button');
+                    timeSlot.className = 'time-slot bg-purple-700 hover:bg-purple-600 text-white text-sm py-1 px-2 rounded transition duration-300 mb-2';
+                    
+                    // Format time (e.g., 09:00, 13:30)
+                    const formattedHour = hour.toString().padStart(2, '0');
+                    const formattedMinute = minute.toString().padStart(2, '0');
+                    const timeString = `${formattedHour}:${formattedMinute}`;
+                    timeSlot.textContent = timeString;
+                    
+                    timeSlot.addEventListener('click', function() {
+                        // Remove selected class from all time slots
+                        document.querySelectorAll('.time-slot').forEach(slot => {
+                            slot.classList.remove('bg-purple-900', 'ring-2', 'ring-purple-300');
+                        });
+                        
+                        // Add selected class to clicked time slot
+                        this.classList.add('bg-purple-900', 'ring-2', 'ring-purple-300');
+                        selectedTime = timeString;
+                    });
+                    
+                    timeSlotsContainer.appendChild(timeSlot);
+                }
+            }
+        }
+        
+        // Previous month button
+        document.getElementById('prev-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+        
+        // Next month button
+        document.getElementById('next-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+        
+        // Initialize calendar
+        renderCalendar();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="fixed inset-0 bg-white z-50 hidden overflow-auto">
+        <div class="bg-purple-900 text-white p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h2 class="title-font text-2xl font-bold">Painel Administrativo</h2>
+                <button id="logout-button" class="bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-4 rounded-full transition duration-300">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Sair
+                </button>
+            </div>
+        </div>
+
+        <div class="container mx-auto p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Agendamentos</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Hoje</span>
+                            <span class="font-bold">5</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Esta Semana</span>
+                            <span class="font-bold">18</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Este Mês</span>
+                            <span class="font-bold">62</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Clientes</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Total</span>
+                            <span class="font-bold">143</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Novos (último mês)</span>
+                            <span class="font-bold">27</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Frequentes</span>
+                            <span class="font-bold">35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Financeiro</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Receita Hoje</span>
+                            <span class="font-bold">R$ 480,00</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span>Receita Mensal</span>
+                            <span class="font-bold">R$ 9.760,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Média por Cliente</span>
+                            <span class="font-bold">R$ 85,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Últimos Agendamentos</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="text-left py-2 px-4">Cliente</th>
+                                <th class="text-left py-2 px-4">Serviço</th>
+                                <th class="text-left py-2 px-4">Data</th>
+                                <th class="text-left py-2 px-4">Horário</th>
+                                <th class="text-left py-2 px-4">Valor</th>
+                                <th class="text-left py-2 px-4">Status</th>
+                                <th class="text-left py-2 px-4">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="py-4 text-center text-gray-500">Nenhum agendamento encontrado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Adicionar Serviço</h3>
+                    <form id="add-service-form">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Nome do Serviço</label>
+                            <input type="text" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Descrição</label>
+                            <textarea required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="3"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Preço</label>
+                            <input type="number" step="0.01" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Duração (minutos)</label>
+                            <input type="number" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Adicionar Serviço
+                        </button>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="title-font text-xl font-bold text-purple-900 mb-4">Configurações</h3>
+                    <form id="settings-form">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Horário de Funcionamento</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-500 text-sm mb-1">Abertura</label>
+                                    <input type="time" value="09:00" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-500 text-sm mb-1">Fechamento</label>
+                                    <input type="time" value="18:00" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Duração dos Slots</label>
+                            <select class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                <option>30 minutos</option>
+                                <option selected>60 minutos</option>
+                                <option>90 minutos</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded border-purple-600 text-purple-600 focus:ring-purple-500">
+                                <span class="ml-2 text-gray-700">Manutenção do Sistema</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Salvar Configurações
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin Panel Functions
+        function showAdminPanel() {
+            document.getElementById('admin-panel').classList.remove('hidden');
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+
+        // Logout button
+        document.getElementById('logout-button').addEventListener('click', function() {
+            hideAdminPanel();
+        });
+
+        // Status change handler
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('status-select')) {
+                const select = e.target;
+                const status = select.value;
+                
+                // Update select appearance based on status
+                select.className = 'status-select px-2 py-1 rounded-full text-xs border-none focus:ring-2 focus:ring-purple-400';
+                
+                switch(status) {
+                    case 'confirmed':
+                        select.classList.add('bg-green-100', 'text-green-800');
+                        break;
+                    case 'pending':
+                        select.classList.add('bg-yellow-100', 'text-yellow-800');
+                        break;
+                    case 'canceled':
+                        select.classList.add('bg-red-100', 'text-red-800');
+                        break;
+                    case 'completed':
+                        select.classList.add('bg-blue-100', 'text-blue-800');
+                        break;
+                }
+                
+                // Here you would typically send an AJAX request to update the status in your database
+                console.log('Status changed to:', status);
+            }
+        });
+
+        // Delete booking handler
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.delete-booking')) {
+                if (confirm('Tem certeza que deseja excluir este agendamento?')) {
+                    const row = e.target.closest('tr');
+                    row.remove();
+                    // Here you would typically send an AJAX request to delete from database
+                    console.log('Booking deleted');
+                }
+            }
+        });
+
+        // Form submissions
+        document.getElementById('add-service-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Serviço adicionado com sucesso!');
+            this.reset();
+        });
+
+        document.getElementById('settings-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Configurações salvas com sucesso!');
+        });
+    </script>
+</body>
+</html>
